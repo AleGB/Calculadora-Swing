@@ -189,6 +189,10 @@ public class Calculadora extends JFrame {
 		nuevaOperacion = true;
 	}
 
+        
+        
+        
+        
 	/**
 	 * Calcula el resultado y lo muestra por pantalla
 	 */
