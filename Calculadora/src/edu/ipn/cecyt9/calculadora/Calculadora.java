@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JButton;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -53,10 +54,10 @@ public class Calculadora extends JFrame {
 	 */
 	public Calculadora() {
 		super();
-		setSize(250, 300);
+		setSize(300, 350);
 		setTitle("Calculadora Simple");
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 
 		// Vamos a dibujar sobre el panel
 		JPanel panel = (JPanel) this.getContentPane();
@@ -90,8 +91,16 @@ public class Calculadora extends JFrame {
 		nuevoBotonOperacion("-");
 		nuevoBotonOperacion("*");
 		nuevoBotonOperacion("/");
-		nuevoBotonOperacion("=");
-		nuevoBotonOperacion("CE");
+		
+		
+                nuevoBotonOperacion("sin");//1
+                nuevoBotonOperacion("cos");//2
+                nuevoBotonOperacion("tan");//3
+                nuevoBotonOperacion("log");//4
+                nuevoBotonOperacion("sqrt");//5
+                
+                nuevoBotonOperacion("=");
+                nuevoBotonOperacion("CE");
 
 		panel.add("East", panelOperaciones);
 
@@ -192,7 +201,17 @@ public class Calculadora extends JFrame {
 			resultado /= new Double(pantalla.getText());
 		} else if (operacion.equals("*")) {
 			resultado *= new Double(pantalla.getText());
-		}
+		} else if (operacion.equals("sin")){
+                        resultado = Math.sin(new Double(pantalla.getText()));
+                } else if (operacion.equals("cos")){
+                        resultado = Math.cos(new Double(pantalla.getText()));
+                } else if (operacion.equals("tan")){
+                        resultado = Math.tan(new Double(pantalla.getText()));
+                } else if (operacion.equals("sqrt")){
+                        resultado = Math.sqrt(new Double(pantalla.getText()));
+                } else if (operacion.equals("log")){
+                        resultado = Math.log10(new Double(pantalla.getText()));
+                }
 
 		pantalla.setText("" + resultado);
 		operacion = "";
